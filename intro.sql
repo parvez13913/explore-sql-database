@@ -31,6 +31,16 @@ CREATE TABLE users (
     age INT DEFAULT 18
 )
 
-insert into users VALUES(1,'abc','abc@gmail.com');
-select * from users;
+
+INSERT INTO users (user_id,user_name,email,age) VALUES(2,'Parvez','parvez@gmail.com',23);
+
+-- ## delete all rows in a table without deleting the TABLE
+-- TRUNCATE TABLE useres;
+
+INSERT INTO users (user_name,email) 
+VALUES
+('Yasin','yasin@gmail.com'),
+('Ashik','ashik@gmail.com');
+
+SELECT * FROM users;
 
