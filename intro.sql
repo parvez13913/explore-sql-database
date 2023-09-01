@@ -18,5 +18,8 @@
 -- )
 
 -- ## RENAME a table name
-ALTER TABLE student RENAME TO learners;
+-- ALTER TABLE student RENAME TO learners;
+
+-- ## DELETE a TABLE
+-- DROP TABLE learners;
 
