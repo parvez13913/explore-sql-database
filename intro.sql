@@ -23,3 +23,14 @@
 -- ## DELETE a TABLE
 -- DROP TABLE learners;
 
+--# create a table with CONSTRAINTS
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    user_name VARCHAR(255) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    age INT DEFAULT 18
+)
+
+insert into users VALUES(1,'abc','abc@gmail.com');
+select * from users;
+
