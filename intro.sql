@@ -10,9 +10,13 @@
 
 -- ## CREATE a student TABLE
 
-CREATE TABLE student(
-    student_id INT,
-    firt_name VARCHAR(50),
-    last_name VARCHAR(50),
-    cgpa NUMERIC(1,2)
-)
+-- CREATE TABLE student(
+--     student_id INT,
+--     firt_name VARCHAR(50),
+--     last_name VARCHAR(50),
+--     cgpa NUMERIC(1,2)
+-- )
+
+-- ## RENAME a table name
+ALTER TABLE student RENAME TO learners;
+
