@@ -107,54 +107,114 @@
 
 
 -- ## create department TABLE
-CREATE TABLE Department (
+-- CREATE TABLE Department (
+--     deptId SERIAL PRIMARY KEY,
+--     deptName VARCHAR(50)
+-- );
+
+-- INSERT INTO Department VALUES(1,'IT');
+-- SELECT * FROM Department;
+
+
+-- -- ## create employe table
+-- CREATE TABLE Employe (
+--     employeId SERIAL PRIMARY KEY,
+--     employeName VARCHAR(50) NOT NULL,
+--     departmentId  INT,
+--     CONSTRAINT fk_constraint_department
+--         FOREIGN KEY(departmentId)
+--         REFERENCES Department(deptId)
+-- );
+
+-- INSERT INTO Employe VALUES(1,'Parvez',1);
+
+-- SELECT * FROM Employe;
+
+
+-- CREATE TABLE Courses (
+--     course_id SERIAL PRIMARY KEY,
+--     course_name VARCHAR(255) NOT NULL,
+--     description VARCHAR(255),
+--     published_date DATE
+-- );
+
+-- INSERT INTO Courses(course_name, description, published_date)
+--     VALUES
+--     ('PostgressQL for Developers','A complete PostgressQL for Developer','2023-09-02'),
+--     ('SQL for Developers','A complete SQL for Developer',NULL),
+--     ('PostgressQL High Performence',NULL,NULL)
+
+-- SELECT * FROM Courses;
+
+-- -- ## UPDATE Courses
+
+-- UPDATE Courses 
+-- set
+-- course_name = 'PostgressQl for Beginners',
+-- description= 'Dummy text'
+-- WHERE course_id > 2;
+
+-- DELETE FROM Courses 
+-- WHERE course_id = 3;
+
+
+
+CREATE TABLE IF NOT EXISTS departments (
     deptId SERIAL PRIMARY KEY,
-    deptName VARCHAR(50)
+    name TEXT NOT NULL
 );
 
-INSERT INTO Department VALUES(1,'IT');
-SELECT * FROM Department;
+INSERT INTO departments (name) VALUES
+('Software Developer'),
+('Database Developer'),
+('IT Support'),
+('Graphic Designer'),
+('UX Designer'),
+('Project Manager'),
+('Cloud Management'),
+('Network Operations'),
+('System Administration'),
+('Quality Assurance')
 
+SELECT * FROM departments;
 
--- ## create employe table
-CREATE TABLE Employe (
-    employeId SERIAL PRIMARY KEY,
-    employeName VARCHAR(50) NOT NULL,
-    departmentId  INT,
-    CONSTRAINT fk_constraint_department
-        FOREIGN KEY(departmentId)
-        REFERENCES Department(deptId)
+CREATE TABLE IF NOT EXISTS employes (
+    empId SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL,
+    salary INTEGER NOT NULL,
+    joining_date DATE NOT NULL,
+    deptId INTEGER NOT NULL,
+    CONSTRAINT fk_deptId
+        FOREIGN KEY(deptId)
+        REFERENCES departments(deptId)
 );
 
-INSERT INTO Employe VALUES(1,'Parvez',1);
-
-SELECT * FROM Employe;
-
-
-CREATE TABLE Courses (
-    course_id SERIAL PRIMARY KEY,
-    course_name VARCHAR(255) NOT NULL,
-    description VARCHAR(255),
-    published_date DATE
-);
-
-INSERT INTO Courses(course_name, description, published_date)
-    VALUES
-    ('PostgressQL for Developers','A complete PostgressQL for Developer','2023-09-02'),
-    ('SQL for Developers','A complete SQL for Developer',NULL),
-    ('PostgressQL High Performence',NULL,NULL)
-
-SELECT * FROM Courses;
-
--- ## UPDATE Courses
-
-UPDATE Courses 
-set
-course_name = 'PostgressQl for Beginners',
-description= 'Dummy text'
-WHERE course_id > 2;
-
-DELETE FROM Courses 
-WHERE course_id = 3;
+INSERT INTO employes (name,email,salary,joining_date, deptId)
+VALUES
+('Parvez','parvez@gmail.com',80000,'2021-08-01',1),
+('Abir','abir@gmail.com',90000,'2020-01-01',1),
+('Shakil','shakil@gmail.com',21000,'2022-08-01',4),
+('Yasin','yasin@gmail.com',20000,'2021-08-01',2),
+('Ashik','ashik@gmail.com',17000,'2021-08-01',3),
+('Rahat','rahat@gmail.com',18000,'2021-08-01',5),
+('Putul','putul@gmail.com',12000,'2021-08-01',6),
+('Sumaya','sumaya@gmail.com',16000,'2021-08-01',7),
+('Majid','majid@gmail.com',19000,'2021-08-01',8),
+('Hamid','hamid@gmail.com',11000,'2021-08-01',9),
+('Sabbir','sabbir@gmail.com',9000,'2021-08-01',10),
+('Hridoy','hridoy@gmail.com',12000,'2021-08-01',4),
+('Rocky','rocky@gmail.com',11000,'2021-08-01',7),
+('Bipul','bipul@gmail.com',12000,'2021-08-01',3),
+('Shouvik','shouvik@gmail.com',10000,'2021-08-01',5)
 
 
+SELECT * FROM employes;
+SELECT name,email FROM employes;
+SELECT * FROM employes
+WHERE salary > 10000 AND salary < 90000
+
+SELECT * FROM employes
+WHERE joining_date > '2020-01-01';
+SELECT * FROM employes
+WHERE name <> 'Parvez';
