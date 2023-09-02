@@ -218,3 +218,15 @@ SELECT * FROM employes
 WHERE joining_date > '2020-01-01';
 SELECT * FROM employes
 WHERE name <> 'Parvez';
+
+SELECT * FROM employes
+ORDER BY name ASC LIMIT 5 OFFSET 3;
+SELECT * FROM employes
+ORDER BY name DESC;
+
+SELECT * FROM employes
+ORDER BY salary DESC LIMIT 1;
+
+SELECT * FROM employes
+ORDER BY salary DESC
+LIMIT 1 OFFSET 2;
