@@ -176,8 +176,6 @@ INSERT INTO departments (name) VALUES
 ('System Administration'),
 ('Quality Assurance')
 
-SELECT * FROM departments;
-
 CREATE TABLE IF NOT EXISTS employes (
     empId SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
@@ -210,23 +208,55 @@ VALUES
 
 
 SELECT * FROM employes;
-SELECT name,email FROM employes;
-SELECT * FROM employes
-WHERE salary > 10000 AND salary < 90000
+SELECT * FROM departments;
 
-SELECT * FROM employes
-WHERE joining_date > '2020-01-01';
-SELECT * FROM employes
-WHERE name <> 'Parvez';
+SELECT employes.name,employes.salary, departments.name 
+FROM employes
+INNER JOIN departments ON departments.deptId = employes.deptId
 
-SELECT * FROM employes
-ORDER BY name ASC LIMIT 5 OFFSET 3;
-SELECT * FROM employes
-ORDER BY name DESC;
+-- SELECT name,email FROM employes;
+-- SELECT * FROM employes
+-- WHERE salary > 10000 AND salary < 90000
 
-SELECT * FROM employes
-ORDER BY salary DESC LIMIT 1;
+-- SELECT * FROM employes
+-- WHERE joining_date > '2020-01-01';
+-- SELECT * FROM employes
+-- WHERE name <> 'Parvez';
 
-SELECT * FROM employes
-ORDER BY salary DESC
-LIMIT 1 OFFSET 2;
+-- SELECT * FROM employes
+-- ORDER BY name ASC LIMIT 5 OFFSET 3;
+-- SELECT * FROM employes
+-- ORDER BY name DESC;
+
+-- SELECT * FROM employes
+-- ORDER BY salary DESC LIMIT 1;
+
+-- SELECT * FROM employes
+-- ORDER BY salary DESC
+-- LIMIT 1 OFFSET 2;
+
+-- ## IN,NOT IN,BTWEEN,LIKE
+
+-- # IN
+-- SELECT * FROM employes
+-- WHERE empId IN(2,3,4);
+
+-- # NOT IN
+-- SELECT * FROM employes
+-- WHERE empId NOT IN(2,3,4);
+
+-- # BETWEEN
+-- SELECT * FROM employes
+-- WHERE salary BETWEEN 80000 AND 90000;
+
+-- # LIKE
+-- SELECT * FROM employes
+-- WHERE name LIKE '%a%';
+-- SELECT * FROM employes
+-- WHERE name LIKE 'A%';
+-- SELECT * FROM employes
+-- WHERE name LIKE '%a';
+-- SELECT * FROM employes
+-- WHERE name LIKE '__a__%';
+-- SELECT * FROM employes
+-- WHERE name LIKE 'A%r';
