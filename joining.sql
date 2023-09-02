@@ -68,3 +68,6 @@ SELECT * FROM departmentt;
 -- SELECT employes.name,employes.salary, departments.name 
 -- FROM employes
 -- FULL JOIN departments ON departments.deptId = employes.deptId;
+
+
+-- INNER JOIN,LEFT JOIN,RIGHT JOIN,FULL JOIN,NATURAL JOIN,CROSS JOIN
