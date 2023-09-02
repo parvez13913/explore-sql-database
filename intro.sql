@@ -101,5 +101,34 @@
 
 -- INSERT INTO users VALUES(5,'Shakil','shakil@gmail.com');
 
+-- TRUNCATE TABLE users ;
+
 -- SELECT * FROM users;
+
+
+-- ## create department TABLE
+CREATE TABLE Department (
+    deptId SERIAL PRIMARY KEY,
+    deptName VARCHAR(50)
+);
+
+INSERT INTO Department VALUES(1,'IT');
+SELECT * FROM Department;
+
+
+-- ## create employe table
+CREATE TABLE Employe (
+    employeId SERIAL PRIMARY KEY,
+    employeName VARCHAR(50) NOT NULL,
+    departmentId  INT,
+    CONSTRAINT fk_constraint_department
+        FOREIGN KEY(departmentId)
+        REFERENCES Department(deptId)
+);
+
+INSERT INTO Employe VALUES(1,'Parvez',1);
+
+SELECT * FROM Employe;
+
+
 
