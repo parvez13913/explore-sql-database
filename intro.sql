@@ -159,60 +159,60 @@
 
 
 
-CREATE TABLE IF NOT EXISTS departments (
-    deptId SERIAL PRIMARY KEY,
-    name TEXT NOT NULL
-);
+-- CREATE TABLE IF NOT EXISTS departments (
+--     deptId SERIAL PRIMARY KEY,
+--     name TEXT NOT NULL
+-- );
 
-INSERT INTO departments (name) VALUES
-('Software Developer'),
-('Database Developer'),
-('IT Support'),
-('Graphic Designer'),
-('UX Designer'),
-('Project Manager'),
-('Cloud Management'),
-('Network Operations'),
-('System Administration'),
-('Quality Assurance')
+-- INSERT INTO departments (name) VALUES
+-- ('Software Developer'),
+-- ('Database Developer'),
+-- ('IT Support'),
+-- ('Graphic Designer'),
+-- ('UX Designer'),
+-- ('Project Manager'),
+-- ('Cloud Management'),
+-- ('Network Operations'),
+-- ('System Administration'),
+-- ('Quality Assurance')
 
-CREATE TABLE IF NOT EXISTS employes (
-    empId SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
-    email TEXT NOT NULL,
-    salary INTEGER NOT NULL,
-    joining_date DATE NOT NULL,
-    deptId INTEGER NOT NULL,
-    CONSTRAINT fk_deptId
-        FOREIGN KEY(deptId)
-        REFERENCES departments(deptId)
-);
+-- CREATE TABLE IF NOT EXISTS employes (
+--     empId SERIAL PRIMARY KEY,
+--     name TEXT NOT NULL,
+--     email TEXT NOT NULL,
+--     salary INTEGER NOT NULL,
+--     joining_date DATE NOT NULL,
+--     deptId INTEGER NOT NULL,
+--     CONSTRAINT fk_deptId
+--         FOREIGN KEY(deptId)
+--         REFERENCES departments(deptId)
+-- );
 
-INSERT INTO employes (name,email,salary,joining_date, deptId)
-VALUES
-('Parvez','parvez@gmail.com',80000,'2021-08-01',1),
-('Abir','abir@gmail.com',90000,'2020-01-01',1),
-('Shakil','shakil@gmail.com',21000,'2022-08-01',4),
-('Yasin','yasin@gmail.com',20000,'2021-08-01',2),
-('Ashik','ashik@gmail.com',17000,'2021-08-01',3),
-('Rahat','rahat@gmail.com',18000,'2021-08-01',5),
-('Putul','putul@gmail.com',12000,'2021-08-01',6),
-('Sumaya','sumaya@gmail.com',16000,'2021-08-01',7),
-('Majid','majid@gmail.com',19000,'2021-08-01',8),
-('Hamid','hamid@gmail.com',11000,'2021-08-01',9),
-('Sabbir','sabbir@gmail.com',9000,'2021-08-01',10),
-('Hridoy','hridoy@gmail.com',12000,'2021-08-01',4),
-('Rocky','rocky@gmail.com',11000,'2021-08-01',7),
-('Bipul','bipul@gmail.com',12000,'2021-08-01',3),
-('Shouvik','shouvik@gmail.com',10000,'2021-08-01',5)
+-- INSERT INTO employes (name,email,salary,joining_date, deptId)
+-- VALUES
+-- ('Parvez','parvez@gmail.com',80000,'2021-08-01',1),
+-- ('Abir','abir@gmail.com',90000,'2020-01-01',1),
+-- ('Shakil','shakil@gmail.com',21000,'2022-08-01',4),
+-- ('Yasin','yasin@gmail.com',20000,'2021-08-01',2),
+-- ('Ashik','ashik@gmail.com',17000,'2021-08-01',3),
+-- ('Rahat','rahat@gmail.com',18000,'2021-08-01',5),
+-- ('Putul','putul@gmail.com',12000,'2021-08-01',6),
+-- ('Sumaya','sumaya@gmail.com',16000,'2021-08-01',7),
+-- ('Majid','majid@gmail.com',19000,'2021-08-01',8),
+-- ('Hamid','hamid@gmail.com',11000,'2021-08-01',9),
+-- ('Sabbir','sabbir@gmail.com',9000,'2021-08-01',10),
+-- ('Hridoy','hridoy@gmail.com',12000,'2021-08-01',4),
+-- ('Rocky','rocky@gmail.com',11000,'2021-08-01',7),
+-- ('Bipul','bipul@gmail.com',12000,'2021-08-01',3),
+-- ('Shouvik','shouvik@gmail.com',10000,'2021-08-01',5)
 
 
-SELECT * FROM employes;
-SELECT * FROM departments;
+-- SELECT * FROM employes;
+-- SELECT * FROM departments;
 
-SELECT employes.name,employes.salary, departments.name 
-FROM employes
-INNER JOIN departments ON departments.deptId = employes.deptId
+-- SELECT employes.name,employes.salary, departments.name 
+-- FROM employes
+-- INNER JOIN departments ON departments.deptId = employes.deptId
 
 -- SELECT name,email FROM employes;
 -- SELECT * FROM employes
