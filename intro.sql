@@ -131,4 +131,30 @@ INSERT INTO Employe VALUES(1,'Parvez',1);
 SELECT * FROM Employe;
 
 
+CREATE TABLE Courses (
+    course_id SERIAL PRIMARY KEY,
+    course_name VARCHAR(255) NOT NULL,
+    description VARCHAR(255),
+    published_date DATE
+);
+
+INSERT INTO Courses(course_name, description, published_date)
+    VALUES
+    ('PostgressQL for Developers','A complete PostgressQL for Developer','2023-09-02'),
+    ('SQL for Developers','A complete SQL for Developer',NULL),
+    ('PostgressQL High Performence',NULL,NULL)
+
+SELECT * FROM Courses;
+
+-- ## UPDATE Courses
+
+UPDATE Courses 
+set
+course_name = 'PostgressQl for Beginners',
+description= 'Dummy text'
+WHERE course_id > 2;
+
+DELETE FROM Courses 
+WHERE course_id = 3;
+
 
