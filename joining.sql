@@ -49,25 +49,36 @@ VALUES
 SELECT * FROM employee;
 SELECT * FROM departmentt;
 
+-- INNER JOIN,LEFT JOIN,RIGHT JOIN,FULL JOIN,NATURAL JOIN,CROSS JOIN
 -- ## INNER JOIN
--- SELECT employes.name,employes.salary, departments.name 
--- FROM employes
--- INNER JOIN departments ON departments.deptId = employes.deptId
+SELECT employee.name,employee.salary, departmentt.name 
+FROM employee
+INNER JOIN departmentt ON departmentt.deptId = employee.deptId
 
 -- ## LEFT JOIN
--- SELECT employes.name,employes.salary, departments.name 
--- FROM employes
--- LEFT JOIN departments ON departments.deptId = employes.deptId;
+SELECT employee.name,employee.salary, departmentt.name 
+FROM employee
+LEFT JOIN departmentt ON departmentt.deptId = employee.deptId;
 
 -- ## Right JOIN
--- SELECT employes.name,employes.salary, departments.name 
--- FROM employes
--- RIGHT JOIN departments ON departments.deptId = employes.deptId;
+SELECT employes.name,employes.salary, departments.name 
+FROM employes
+RIGHT JOIN departments ON departments.deptId = employes.deptId;
 
 -- ## FULL JOIN
--- SELECT employes.name,employes.salary, departments.name 
--- FROM employes
--- FULL JOIN departments ON departments.deptId = employes.deptId;
+SELECT employes.name,employes.salary, departments.name 
+FROM employes
+FULL JOIN departments ON departments.deptId = employes.deptId;
 
 
--- INNER JOIN,LEFT JOIN,RIGHT JOIN,FULL JOIN,NATURAL JOIN,CROSS JOIN
+-- ## Aggregate
+-- SELECT AVG(salary) AS avarageSalary FROM employes;
+-- SELECT SUM(salary) AS totalSalary FROM employes;
+-- SELECT MIN(salary) AS minSalary FROM employes;
+-- SELECT MAX(salary) AS maxSalary FROM employes;
+
+-- SELECT deptId, SUM(salary) FROM employes GROUP BY deptId;
+
+SELECT departmentt.dept_name, AVG(employee.salary) FROM employee
+RIGHT JOIN departmentt ON employee.deptId = departmentt.deptId
+GROUP BY departmentt.dept_name HAVING AVG(employee.salary) > 80000;
