@@ -260,3 +260,30 @@
 -- WHERE name LIKE '__a__%';
 -- SELECT * FROM employes
 -- WHERE name LIKE 'A%r';
+
+CREATE TABLE products (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    base_price FLOAT8 NOT NULL,
+    final_price FLOAT8
+);
+
+INSERT INTO products(title, base_price) VALUES ('Apple',50);
+
+SELECT * FROM products;
+
+CREATE TRIGGER add_text_trigger
+AFTER 
+INSERT ON products
+FOR EACH ROW
+EXECUTE FUNCTION update_final_price();
+
+
+CREATE FUNCTION update_final_price()
+RETURNS TRIGGER 
+LANGUAGE plpgsql
+AS $$ 
+   BEGIN
+      NEW.final_price := NEW.base_price * 1.05;
+   END;
+$$;
